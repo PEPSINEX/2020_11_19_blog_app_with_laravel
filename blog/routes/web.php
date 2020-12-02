@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/react', function () {
     return view('react');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
