@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// ------------------------------------------------------------------------
+// ここからビジネスロジック
+function rightHeaderLayout()
+{
+    $request = request()->path();
+
+    if(Auth::check()){ return 'layouts/rightHeader/authenticated/userMenu'; }
+    if($request == 'login'){ return 'layouts/rightHeader/unAuthenticated/login'; }
+    if($request == 'register'){ return 'layouts/rightHeader/unAuthenticated/register'; }
+    return 'layouts/rightHeader/unAuthenticated/other';
+}
+
+View::composer('*', function($view)
+{
+    $rightHeaderLayout = rightHeaderLayout();
+    $view->with('rightHeaderLayout', $rightHeaderLayout);
+});
+// ここまでビジネスロジック
+// ------------------------------------------------------------------------
 
 Route::get('/', function () {
     return view('welcome');
