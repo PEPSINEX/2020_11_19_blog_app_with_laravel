@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Socialite Providersインストール時に設定
+        \SocialiteProviders\Manager\ServiceProvider::class,
+
     ],
 
     /*

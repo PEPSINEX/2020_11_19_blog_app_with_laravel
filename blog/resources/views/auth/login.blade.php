@@ -7,6 +7,23 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
+                <div class="form-group row mt-2">
+                    <div class="col-md-8 offset-md-4">
+                        <a href="{{ route('facebook') }}" class="btn btn-secondary" role="button">
+                            Facebook Login
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="form-group row mt-2">
+                    <div class="col-md-8 offset-md-4">
+                        <a href="{{ route('twitter') }}" class="btn btn-secondary" role="button">
+                            Twitter Login
+                        </a>
+                    </div>
+                </div>
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

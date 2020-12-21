@@ -14,8 +14,10 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel-lang/lang": "~8.0",
         "laravel/framework": "^8.12",
+        "laravel/socialite": "~5.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.1"
+        "laravel/ui": "^3.1",
+        "socialiteproviders/manager": "~4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
