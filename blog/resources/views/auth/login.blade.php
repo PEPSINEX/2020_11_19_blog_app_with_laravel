@@ -1,26 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="form-group row mt-2">
-                    <div class="col-md-8 offset-md-4">
-                        <a href="{{ route('facebook') }}" class="btn btn-secondary" role="button">
-                            Facebook Login
-                        </a>
-                    </div>
-                </div>
+                <div class="card-body">
+                    <div class="form-group row  offset-md-2">
+                        <div class="col-md-4 ">
+                            <a href="{{ route('facebook') }}" class="btn btn-block btn-social btn-facebook"  role="button">
+                                <span class="fa fa-facebook"></span> Facebook  Login
+                            </a>
+                        </div>
 
-
-                <div class="form-group row mt-2">
-                    <div class="col-md-8 offset-md-4">
-                        <a href="{{ route('twitter') }}" class="btn btn-secondary" role="button">
-                            Twitter Login
-                        </a>
+                        <div class="col-md-4">
+                            <a href="{{ route('twitter') }}"  class="btn btn-block btn-social btn-twitter" role="button">
+                                <span class="fa fa-twitter"></span> Twitter Login
+                            </a>
+                        </div>
                     </div>
                 </div>
 

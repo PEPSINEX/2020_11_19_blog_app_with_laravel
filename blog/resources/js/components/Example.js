@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'font-awesome/css/font-awesome.css';
+import 'bootstrap-social/bootstrap-social.css';
+
 function Example() {
     return (
         <div className="container">
