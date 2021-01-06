@@ -8,21 +8,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <div class="form-group row  offset-md-2">
-                        <div class="col-md-4 ">
-                            <a href="{{ route('facebook') }}" class="btn btn-block btn-social btn-facebook"  role="button">
-                                <span class="fa fa-facebook"></span> Facebook  Login
-                            </a>
-                        </div>
-
-                        <div class="col-md-4">
-                            <a href="{{ route('twitter') }}"  class="btn btn-block btn-social btn-twitter" role="button">
-                                <span class="fa fa-twitter"></span> Twitter Login
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @include('layouts/login/oauth')
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
