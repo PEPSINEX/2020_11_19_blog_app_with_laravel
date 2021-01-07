@@ -26,11 +26,11 @@ Auth::routes();
 
 Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
 
-// // Socialite導入のため
-// Route::get('login/facebook', [Controllers\Auth\LoginController::class, 'redirectToFacebookProvider'])->name('facebook');
-// Route::get('login/facebook/callback', [Controllers\Auth\LoginController::class, 'handleFacebookProviderCallback']);
-// Route::get('login/twitter', [Controllers\Auth\LoginController::class, 'redirectToTwitterProvider'])->name('twitter');
-// Route::get('login/twitter/callback', [Controllers\Auth\LoginController::class, 'handleTwitterProviderCallback']);
-
 Route::get('/login/{provider}', [Controllers\Auth\LoginController::class, 'redirectToProvider'])->where('provider', 'twitter|facebook');
 Route::get('/login/{provider}/callback', [Controllers\Auth\LoginController::class, 'handleProviderCallback'])->where('provider', 'twitter|facebook');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/user', [Controllers\UserController::class, 'show'])->name('user');
+    Route::post('/avatar', [Controllers\UserController::class, 'avatar'])->name('avatar');
+    Route::delete('/avatar_delete', [Controllers\UserController::class, 'avatar_delete'])->name('avatar_delete');
+});

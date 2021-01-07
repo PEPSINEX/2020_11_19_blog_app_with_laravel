@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;    // registerメソッドのオーバーライドのため追加
 
 class RegisterController extends Controller
 {
@@ -69,5 +70,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    protected function registered( Request $request, $user )
+    {
+        // registerメソッド内で、ログイン処理しているため
+        // ログアウトさせる
+        // $this->guard()->logout();
+ 
+        // return redirect( '/' )
+        //         ->with( 'message', '仮登録しました。登録アドレスへ確認メールが届きます。中のボタンを押し、登録処理を完了してください。' );
+
+        return redirect()->route('user');
     }
 }

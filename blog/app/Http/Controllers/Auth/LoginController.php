@@ -45,6 +45,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');    
     }
 
+    protected function authenticated(Request $request, $user)
+    {
+        return redirect()->route('user');
+    }
 
     public function redirectToProvider($provider)
     {
@@ -137,5 +141,4 @@ class LoginController extends Controller
 
         return $tUser;
     }
-
 }
